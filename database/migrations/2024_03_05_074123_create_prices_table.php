@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('price', 7, 2)->default(0);
             $table->decimal('discount_price', 7, 2)->default(0);
             $table->decimal('discount_rate', 4, 2)->default(0);
+            $table->boolean('confirm')->default(true);
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');

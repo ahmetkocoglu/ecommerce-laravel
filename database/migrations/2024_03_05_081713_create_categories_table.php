@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title', 150);
             $table->string('seo', 150);
             $table->string('description', 150);
+            $table->boolean('confirm')->default(true);
             $table->timestamps();
         });
     }

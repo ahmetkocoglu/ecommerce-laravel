@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title', 150);
             $table->string('slug', 150);
             $table->string('description', 2000);
+            $table->boolean('confirm')->default(true);
             $table->timestamps();
         });
     }

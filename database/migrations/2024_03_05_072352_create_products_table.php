@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('barcode', 20);
             $table->string('associative', 20);
             $table->decimal('tax', 4, 2)->default(0);
+            $table->boolean('confirm')->default(true);
             $table->timestamps();
         });
     }

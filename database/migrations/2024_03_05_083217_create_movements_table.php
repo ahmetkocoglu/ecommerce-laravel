@@ -24,6 +24,7 @@ return new class extends Migration
             $table->decimal('tax', 7, 2)->default(0);
             $table->decimal('total', 7, 2)->default(0);
             $table->string('description', 100);
+            $table->boolean('confirm')->default(true);
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');

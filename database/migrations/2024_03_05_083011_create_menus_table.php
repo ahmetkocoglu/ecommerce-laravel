@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title', 100);
             $table->string('seo', 100);
             $table->unsignedBigInteger('menu_id')->nullable();
+            $table->boolean('confirm')->default(true);
             $table->timestamps();
 
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade')->onUpdate('cascade');

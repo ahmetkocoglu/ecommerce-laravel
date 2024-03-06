@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('seo', 100);
             $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('variation_id')->nullable();
+            $table->boolean('confirm')->default(true);
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
