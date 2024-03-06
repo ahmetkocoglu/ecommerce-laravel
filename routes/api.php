@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,6 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::get('/product', [ProductController::class, 'index'])->name('product-index');
+    Route::get('/price', [PriceController::class, 'index'])->name('product-index');
 });
 

@@ -12,7 +12,9 @@ class PriceController extends Controller
      */
     public function index()
     {
-        //
+        $price = Price::with("product")->get();
+
+        return response()->json($price);
     }
 
     /**
