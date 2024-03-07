@@ -11,7 +11,11 @@ class Product extends Model
 
     protected $hidden = [
         'created_at',
-        'updated_at'
+        'deleted_at'
+    ];
+
+    protected $casts = [
+        'updated_at' => "datetime:Y-m-d"
     ];
 
     public function price(){

@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Schema::create('sub_episodes', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->softDeletes();
+        //     $table->timestamps();
+        // });
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title', 150);
@@ -21,6 +26,7 @@ return new class extends Migration
             $table->string('associative', 20);
             $table->decimal('tax', 4, 2)->default(0);
             $table->boolean('confirm')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

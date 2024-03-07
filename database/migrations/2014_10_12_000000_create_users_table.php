@@ -21,6 +21,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->enum('role', [UserRolesEnum::values()])->default(UserRolesEnum::USER);
             $table->boolean('confirm')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -14,14 +14,15 @@ class ProductController extends Controller
     {
         // $products = Product::with('price:product_id,price,discount_price,discount_rate')
         $products = Product::with('price')
-            ->with('rating:product_id,rating')
-            ->with('rating')
-            ->with('variation')
-            ->with('campaign')
-            ->with('favorite')
-            ->with('productCategory')
-            ->where("confirm", true)
-            ->select(["id", "title", "confirm"])
+            ->where('deleted_at', null)
+            // ->with('rating:product_id,rating')
+            // ->with('rating')
+            // ->with('variation')
+            // ->with('campaign')
+            // ->with('favorite')
+            // ->with('productCategory')
+            // ->where("confirm", true)
+            //->select(["id", "title", "confirm"])
             ->get();
 
         return response()->json($products);

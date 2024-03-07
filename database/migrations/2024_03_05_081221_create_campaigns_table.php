@@ -22,6 +22,7 @@ return new class extends Migration
             $table->dateTimeTz('start_date', 3)->default(Carbon::now());
             $table->dateTimeTz('end_date', 3)->default(Carbon::now()->addMonth());
             $table->boolean('confirm')->default(true);
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');

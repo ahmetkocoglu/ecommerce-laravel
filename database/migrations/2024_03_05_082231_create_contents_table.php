@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug', 150);
             $table->string('description', 2000);
             $table->boolean('confirm')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
