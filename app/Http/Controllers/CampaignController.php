@@ -12,7 +12,8 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+        $campaign = Campaign::with('product')->get();
+        return response()->json($campaign);
     }
 
     /**

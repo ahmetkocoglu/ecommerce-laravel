@@ -12,7 +12,9 @@ class ContentController extends Controller
      */
     public function index()
     {
-        //
+        $content = Content::all();
+
+        return response()->json($content);
     }
 
     /**

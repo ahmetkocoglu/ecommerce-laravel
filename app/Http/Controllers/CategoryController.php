@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::with('productCategory')->get();
+        return response()->json($category);
     }
 
     /**

@@ -19,7 +19,7 @@ class Product extends Model
     ];
 
     public function price(){
-        return $this->hasOne(Price::class)->select(['product_id', 'price']);
+        return $this->hasOne(Price::class);
     }
 
     public function rating(){

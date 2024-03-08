@@ -12,7 +12,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::with('product:id,title','user:id,name')->get();
+
+        return response()->json($comments);
     }
 
     /**

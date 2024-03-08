@@ -12,7 +12,9 @@ class CouponController extends Controller
      */
     public function index()
     {
-        //
+        $coupons = Coupon::with('user')->get();
+
+        return response()->json($coupons);
     }
 
     /**
