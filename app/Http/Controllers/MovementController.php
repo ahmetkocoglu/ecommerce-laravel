@@ -12,7 +12,9 @@ class MovementController extends Controller
      */
     public function index()
     {
-        //
+        $movements = Movement::with('movements')->where('movement_id', null)->get();
+
+        return response()->json($movements);
     }
 
     /**

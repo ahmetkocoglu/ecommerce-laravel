@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MovementController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -39,5 +40,6 @@ Route::prefix('v1')->group(function () {
     Route::get('/content', [ContentController::class, 'index'])->name('content-index');
     Route::get('/coupon', [CouponController::class, 'index'])->name('coupon-index');
     Route::get('/menu', [MenuController::class, 'index'])->name('menu-index');
+    Route::get('/movement', [MovementController::class, 'index'])->name('movement-index');
 });
 

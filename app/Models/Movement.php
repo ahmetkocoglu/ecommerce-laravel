@@ -16,4 +16,8 @@ class Movement extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function movements(){
+        return $this->hasMany(Movement::class, 'movement_id', 'id');
+    }
 }
