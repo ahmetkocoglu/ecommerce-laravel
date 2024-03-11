@@ -12,7 +12,9 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $productCategories = ProductCategory::all();
+
+        return response()->json($productCategories);
     }
 
     /**

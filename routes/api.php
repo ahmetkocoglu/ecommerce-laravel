@@ -5,10 +5,15 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MovementController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VariationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,5 +46,10 @@ Route::prefix('v1')->group(function () {
     Route::get('/coupon', [CouponController::class, 'index'])->name('coupon-index');
     Route::get('/menu', [MenuController::class, 'index'])->name('menu-index');
     Route::get('/movement', [MovementController::class, 'index'])->name('movement-index');
+    Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite-index');
+    Route::get('/product-category', [ProductCategoryController::class, 'index'])->name('product-category-index');
+    Route::get('/rating', [RatingController::class, 'index'])->name('rating-index');
+    Route::get('/user', [UserController::class, 'index'])->name('user-index');
+    Route::get('/variation', [VariationController::class, 'index'])->name('variation-index');
 });
 

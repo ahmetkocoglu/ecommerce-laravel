@@ -12,7 +12,9 @@ class VariationController extends Controller
      */
     public function index()
     {
-        //
+        $variations = Variation::all();
+
+        return response()->json($variations);
     }
 
     /**

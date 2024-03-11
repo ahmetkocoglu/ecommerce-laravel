@@ -12,7 +12,9 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        $favorites = Favorite::all();
+
+        return response()->json($favorites);
     }
 
     /**
