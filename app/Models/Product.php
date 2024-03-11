@@ -27,7 +27,7 @@ class Product extends Model
     }
 
     public function variation(){
-        return $this->hasMany(Variation::class);
+        return $this->hasMany(Variation::class)->with('subVariation');
     }
 
     public function campaign(){
@@ -40,5 +40,9 @@ class Product extends Model
 
     public function productCategory(){
         return $this->hasMany(ProductCategory::class);
+    }
+
+    public function comment(){
+        return $this->hasMany(Comment::class);
     }
 }

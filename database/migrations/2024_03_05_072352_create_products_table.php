@@ -11,11 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('sub_episodes', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->softDeletes();
-        //     $table->timestamps();
-        // });
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title', 150);

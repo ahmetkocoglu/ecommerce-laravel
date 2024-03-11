@@ -17,7 +17,7 @@ class ProductController extends Controller
             ->where('deleted_at', null)
             // ->with('rating:product_id,rating')
             // ->with('rating')
-            // ->with('variation')
+            ->with('variation')
             // ->with('campaign')
             // ->with('favorite')
             // ->with('productCategory')

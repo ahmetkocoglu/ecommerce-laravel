@@ -12,4 +12,8 @@ class ProductCategory extends Model
     public function product(){
         return $this->belongsTo(Product::class)->with('price');
     }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
