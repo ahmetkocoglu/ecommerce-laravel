@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -32,12 +33,26 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/', function (Request $request) {
+    return response()->json('service start');
+});
+
+Route::post('/', function (Request $request) {
+    return response()->json('service start');
+});
+
 Route::prefix('v1')->group(function () {
     Route::get('/', function (Request $request) {
-        return response()->json(true);
+        return response()->json('service start => get');
+    });
+
+    Route::post('/', function (Request $request) {
+        return response()->json('service start => post');
     });
 
     Route::get('/product', [ProductController::class, 'index'])->name('product-index');
+    Route::post('/product', [ProductController::class, 'store'])->name('product-store');
+
     Route::get('/price', [PriceController::class, 'index'])->name('product-index');
     Route::get('/campaign', [CampaignController::class, 'index'])->name('campaign-index');
     Route::get('/category', [CategoryController::class, 'index'])->name('category-index');

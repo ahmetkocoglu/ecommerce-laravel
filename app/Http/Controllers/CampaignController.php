@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Campaign\CampaignStoreRequest;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class CampaignController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CampaignStoreRequest $request)
     {
         //
     }

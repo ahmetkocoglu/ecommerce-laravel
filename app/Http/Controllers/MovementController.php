@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Movement\MovementStoreRequest;
 use App\Models\Movement;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class MovementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MovementStoreRequest $request)
     {
         //
     }

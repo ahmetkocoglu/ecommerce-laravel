@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Product\ProductStoreRequest;
+use App\Http\Services\Product\ProductService;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -39,9 +41,21 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductStoreRequest $request)
     {
-        //
+        // $validated = $request->validate([
+        //     'title' => 'required|min:5|max:150',
+        // ]);
+
+        // $product = new Product();
+        // $product->title = $request->title;
+        // $product->seo = $request->seo;
+
+        // $product->save();
+
+        // return response()->json($product);
+
+        return ProductService::store($request->validated());
     }
 
     /**

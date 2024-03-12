@@ -9,6 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     protected $hidden = [
         'created_at',
         'deleted_at'

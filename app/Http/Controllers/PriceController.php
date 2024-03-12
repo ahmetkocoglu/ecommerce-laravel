@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Price\PriceStoreRequest;
 use App\Models\Price;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class PriceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PriceStoreRequest $request)
     {
         //
     }

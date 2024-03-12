@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Favorite\FavoriteStoreRequest;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FavoriteStoreRequest $request)
     {
         //
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Variation\VariationStoreRequest;
 use App\Models\Variation;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class VariationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(VariationStoreRequest $request)
     {
         //
     }

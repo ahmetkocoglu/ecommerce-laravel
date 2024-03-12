@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title', 150);
             $table->string('seo', 150);
-            $table->string('description', 255);
-            $table->string('stock_code', 20);
-            $table->string('barcode', 20);
-            $table->string('associative', 20);
+            $table->string('description', 255)->nullable();
+            $table->string('stock_code', 20)->nullable();
+            $table->string('barcode', 20)->nullable();
+            $table->string('associative', 20)->nullable();
             $table->decimal('tax', 4, 2)->default(0);
             $table->boolean('confirm')->default(true);
             $table->softDeletes();
