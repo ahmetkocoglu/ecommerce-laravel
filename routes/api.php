@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -50,9 +51,13 @@ Route::prefix('v1')->group(function () {
         return response()->json('service start => post');
     });
 
-    Route::get('/product', [ProductController::class, 'index'])->name('product-index');
-    Route::post('/product', [ProductController::class, 'store'])->name('product-store');
-
+    Route::controller(RegisteredUserController::class)->prefix('/auth')->name('auth.')->group(function () {
+        Route::post('/sign-up', 'store')->name('store');
+    });
+    Route::controller(ProductController::class)->prefix('/product')->name('product.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
     Route::controller(CampaignController::class)->prefix('/campaign')->name('campaign.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
