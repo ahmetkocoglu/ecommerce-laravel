@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Category\CategoryStoreRequest;
+use App\Http\Services\Category\CategoryService;
 use App\Models\Category;
 use Illuminate\Http\Request;
 

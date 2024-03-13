@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Movement\MovementStoreRequest;
+use App\Http\Services\Movement\MovementService;
 use App\Models\Movement;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class MovementController extends Controller
      */
     public function store(MovementStoreRequest $request)
     {
-        //
+        return MovementService::store($request->validated());
     }
 
     /**

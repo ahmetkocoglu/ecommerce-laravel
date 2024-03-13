@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Content\ContentStoreRequest;
+use App\Http\Services\Content\ContentService;
 use App\Models\Content;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class ContentController extends Controller
      */
     public function store(ContentStoreRequest $request)
     {
-        //
+        return ContentService::store($request->validated());
     }
 
     /**

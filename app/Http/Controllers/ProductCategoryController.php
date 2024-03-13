@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductCategory\ProductCategoryStoreRequest;
+use App\Http\Services\ProductCategory\ProductCategoryService;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class ProductCategoryController extends Controller
      */
     public function store(ProductCategoryStoreRequest $request)
     {
-        //
+        return ProductCategoryService::store($request->validated());
     }
 
     /**

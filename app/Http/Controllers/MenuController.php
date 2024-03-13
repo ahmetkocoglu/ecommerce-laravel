@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Menu\MenuStoreRequest;
+use App\Http\Services\Menu\MenuService;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class MenuController extends Controller
      */
     public function store(MenuStoreRequest $request)
     {
-        //
+        return MenuService::store($request->validated());
     }
 
     /**

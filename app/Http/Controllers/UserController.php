@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\UserStoreRequest;
+use App\Http\Services\User\UserService;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        //
+        return UserService::store($request->validated());
     }
 
     /**

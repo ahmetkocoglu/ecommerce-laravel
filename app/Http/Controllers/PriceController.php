@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Price\PriceStoreRequest;
+use App\Http\Services\Price\PriceService;
 use App\Models\Price;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class PriceController extends Controller
      */
     public function store(PriceStoreRequest $request)
     {
-        //
+        return PriceService::store($request->validated());
     }
 
     /**

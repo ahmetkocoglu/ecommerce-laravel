@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Variation\VariationStoreRequest;
+use App\Http\Services\Variation\VariationService;
 use App\Models\Variation;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class VariationController extends Controller
      */
     public function store(VariationStoreRequest $request)
     {
-        //
+        return VariationService::store($request->validated());
     }
 
     /**

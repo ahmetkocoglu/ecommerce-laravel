@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Campaign\CampaignStoreRequest;
+use App\Http\Services\Campaign\CampaignService;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class CampaignController extends Controller
      */
     public function store(CampaignStoreRequest $request)
     {
-        //
+        return CampaignService::store($request->validated());
     }
 
     /**

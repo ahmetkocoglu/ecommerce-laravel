@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Coupon\CouponStoreRequest;
+use App\Http\Services\Coupon\CouponService;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class CouponController extends Controller
      */
     public function store(CouponStoreRequest $request)
     {
-        //
+        return CouponService::store($request->validated());
     }
 
     /**
