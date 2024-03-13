@@ -15,14 +15,18 @@ class RatingStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'productId' => ['required', 'integer', 'exists:products,id'],
+            'userId' => ['required', 'integer', 'exists:users,id'],
+            'rating' => ['required', 'integer'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'productId' => "productId Required",
+            'userId' => "userId Required",
+            'rating' => "rating Required",
         ];
     }
 

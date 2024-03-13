@@ -15,14 +15,18 @@ class MenuStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'title' => ['required', 'min:3', 'max:150', 'string'],
+            'seo' => ['required', 'min:3', 'max:150', 'string'],
+            'menuId' => ['integer', 'exists:menus,id'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'title' => "Title Required",
+            'seo' => "Seo Required",
+            'menuId' => "menuId",
         ];
     }
 

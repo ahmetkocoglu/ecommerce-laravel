@@ -15,14 +15,20 @@ class PriceStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'productId' => ['required', 'integer', 'exists:products,id'],
+            'price' => ['required', 'integer'],
+            'discountPrice' => ['required', 'integer'],
+            'discountRate' => ['required', 'integer'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'productId' => "productId Required",
+            'price' => "price Required",
+            'discountPrice' => "discountPrice Required",
+            'discountRate' => "discountRate Required"
         ];
     }
 

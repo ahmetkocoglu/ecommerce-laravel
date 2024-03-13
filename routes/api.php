@@ -53,8 +53,6 @@ Route::prefix('v1')->group(function () {
     Route::get('/product', [ProductController::class, 'index'])->name('product-index');
     Route::post('/product', [ProductController::class, 'store'])->name('product-store');
 
-    Route::get('/price', [PriceController::class, 'index'])->name('product-index');
-
     Route::controller(CampaignController::class)->prefix('/campaign')->name('campaign.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
@@ -82,11 +80,27 @@ Route::prefix('v1')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
     });
-    Route::get('/menu', [MenuController::class, 'index'])->name('menu-index');
+    Route::controller(MenuController::class)->prefix('/menu')->name('menu.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
     Route::get('/movement', [MovementController::class, 'index'])->name('movement-index');
-    Route::get('/product-category', [ProductCategoryController::class, 'index'])->name('product-category-index');
-    Route::get('/rating', [RatingController::class, 'index'])->name('rating-index');
+    Route::controller(PriceController::class)->prefix('/price')->name('price.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
+    Route::controller(ProductCategoryController::class)->prefix('/product-category')->name('product-category.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
+    Route::controller(RatingController::class)->prefix('/rating')->name('rating.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
     Route::get('/user', [UserController::class, 'index'])->name('user-index');
-    Route::get('/variation', [VariationController::class, 'index'])->name('variation-index');
+    Route::controller(VariationController::class)->prefix('/variation')->name('variation.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
 });
 

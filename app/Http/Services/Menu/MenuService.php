@@ -12,7 +12,8 @@ class MenuService
     {
         $insert = Menu::query()->create([
             'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'seo' => isset($request['seo']) ? $request['seo'] : \Str::slug($request['title']),
+            'menu_id' => $request['menuId'],
         ]);
 
         if(!$insert) return false;

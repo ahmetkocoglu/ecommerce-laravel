@@ -15,14 +15,16 @@ class ProductCategoryStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'productId' => ['required', 'integer', 'exists:products,id'],
+            'categoryId' => ['required', 'integer', 'exists:categories,id'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'productId' => "productId Required",
+            'categoryId' => "categoryId Required",
         ];
     }
 

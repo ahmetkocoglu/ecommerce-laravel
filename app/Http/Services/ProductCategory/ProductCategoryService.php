@@ -11,8 +11,8 @@ class ProductCategoryService
     public static function store(array $request)
     {
         $insert = ProductCategory::query()->create([
-            'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'product_id' => $request['productId'],
+            'category_id' => $request['categoryId'],
         ]);
 
         if(!$insert) return false;

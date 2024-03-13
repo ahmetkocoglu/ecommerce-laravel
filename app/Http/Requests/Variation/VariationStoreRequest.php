@@ -15,14 +15,20 @@ class VariationStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'title' => ['required', 'min:3', 'max:150', 'string'],
+            'seo' => ['required', 'min:3', 'max:150', 'string'],
+            'productId' => ['integer', 'exists:products,id'],
+            'variationId' => ['integer', 'exists:variations,id'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'title' => "Title Required",
+            'seo' => "Seo Required",
+            'productId' => "productId Required",
+            'variationId' => "variationId",
         ];
     }
 

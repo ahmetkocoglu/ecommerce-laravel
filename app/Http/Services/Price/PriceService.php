@@ -11,8 +11,10 @@ class PriceService
     public static function store(array $request)
     {
         $insert = Price::query()->create([
-            'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'product_id' => $request['productId'],
+            'price' => $request['price'],
+            'discount_price' => $request['discountPrice'],
+            'discount_rate' => $request['discountRate'],
         ]);
 
         if(!$insert) return false;

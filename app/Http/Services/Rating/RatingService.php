@@ -11,8 +11,9 @@ class RatingService
     public static function store(array $request)
     {
         $insert = Rating::query()->create([
-            'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'product_id' => $request['productId'],
+            'user_id' => $request['userId'],
+            'rating' => $request['rating'],
         ]);
 
         if(!$insert) return false;

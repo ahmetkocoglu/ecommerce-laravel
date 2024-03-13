@@ -11,8 +11,11 @@ class VariationService
     public static function store(array $request)
     {
         $insert = Variation::query()->create([
+
             'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'seo' => $request['seo'],
+            'product_id' => $request['productId'],
+            'variation_id' => isset($request['variationId']) ? $request['variationId'] : null,
         ]);
 
         if(!$insert) return false;
