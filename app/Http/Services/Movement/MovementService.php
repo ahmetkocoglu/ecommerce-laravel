@@ -11,8 +11,15 @@ class MovementService
     public static function store(array $request)
     {
         $insert = Movement::query()->create([
-            'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'product_id' => $request['productId'],
+            'user_id' => $request['userId'],
+            'process_type' => $request['processType'],
+            'price' => $request['price'],
+            'discountPrice' => $request['discountPrice'],
+            'quantity' => $request['quantity'],
+            'tax' => $request['tax'],
+            'total' => $request['total'],
+            'description' => $request['description'],
         ]);
 
         if(!$insert) return false;

@@ -84,7 +84,10 @@ Route::prefix('v1')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
     });
-    Route::get('/movement', [MovementController::class, 'index'])->name('movement-index');
+    Route::controller(MovementController::class)->prefix('/movement')->name('movement.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
     Route::controller(PriceController::class)->prefix('/price')->name('price.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
