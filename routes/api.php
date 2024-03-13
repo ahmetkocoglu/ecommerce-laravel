@@ -55,7 +55,14 @@ Route::prefix('v1')->group(function () {
 
     Route::get('/price', [PriceController::class, 'index'])->name('product-index');
     Route::get('/campaign', [CampaignController::class, 'index'])->name('campaign-index');
-    Route::get('/category', [CategoryController::class, 'index'])->name('category-index');
+
+    Route::controller(CategoryController::class)->prefix('/category')->name('category.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
+    //Route::get('/category', [CategoryController::class, 'index'])->name('category-index');
+    //Route::post('/category', [CategoryController::class, 'store'])->name('category-store');
+
     Route::get('/comment', [CommentController::class, 'index'])->name('comment-index');
     Route::get('/content', [ContentController::class, 'index'])->name('content-index');
     Route::get('/coupon', [CouponController::class, 'index'])->name('coupon-index');

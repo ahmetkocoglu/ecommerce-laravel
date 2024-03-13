@@ -30,7 +30,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        //
+        return CategoryService::store($request->validated());
     }
 
     /**
