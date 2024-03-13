@@ -9,6 +9,8 @@ class Menu extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     protected $hidden = [
         'confirm',
         'created_at',

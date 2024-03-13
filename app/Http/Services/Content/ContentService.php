@@ -12,7 +12,8 @@ class ContentService
     {
         $insert = Content::query()->create([
             'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'slug' => isset($request['slug']) ? $request['slug'] : \Str::slug($request['title']),
+            'description' => $request['description'],
         ]);
 
         if(!$insert) return false;

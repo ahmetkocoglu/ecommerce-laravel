@@ -11,8 +11,8 @@ class FavoriteService
     public static function store(array $request)
     {
         $insert = Favorite::query()->create([
-            'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'product_id' => $request['productId'],
+            'user_id' => $request['userId'],
         ]);
 
         if(!$insert) return false;

@@ -15,14 +15,16 @@ class FavoriteStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'productId' => ['required', 'integer', 'exists:products,id'],
+            'userId' => ['required', 'integer', 'exists:users,id'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'productId' => "productId Required",
+            'userId' => "userId Required",
         ];
     }
 

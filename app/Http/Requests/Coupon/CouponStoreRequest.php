@@ -15,14 +15,28 @@ class CouponStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'userId' => ['required', 'integer', 'exists:users,id'],
+            'code' => ['required', 'min:3', 'max:150', 'string'],
+            'title' => ['required', 'min:3', 'max:150', 'string'],
+            'description' => ['required', 'min:3', 'max:255', 'string'],
+            'type' => ['required', 'min:3', 'max:150', 'string'],
+            'price' => ['required','numeric'],
+            'startDate' => ['required', 'date'],
+            'endDate' => ['required', 'date'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'userId' => "userId Required",
+            'code' => "code Required",
+            'title' => "title Required",
+            'description' => "description Required",
+            'type' => "type Required",
+            'price' => "price Required",
+            'startDate' => "startDate Required",
+            'endDate' => "endDate Required"
         ];
     }
 

@@ -11,8 +11,14 @@ class CouponService
     public static function store(array $request)
     {
         $insert = Coupon::query()->create([
+            'user_id' => $request['userId'],
+            'code' => $request['code'],
             'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'description' => $request['description'],
+            'type' => $request['type'],
+            'price' => $request['price'],
+            'start_date' => $request['startDate'],
+            'end_date' => $request['endDate'],
         ]);
 
         if(!$insert) return false;

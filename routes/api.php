@@ -54,8 +54,11 @@ Route::prefix('v1')->group(function () {
     Route::post('/product', [ProductController::class, 'store'])->name('product-store');
 
     Route::get('/price', [PriceController::class, 'index'])->name('product-index');
-    Route::get('/campaign', [CampaignController::class, 'index'])->name('campaign-index');
 
+    Route::controller(CampaignController::class)->prefix('/campaign')->name('campaign.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
     Route::controller(CategoryController::class)->prefix('/category')->name('category.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
@@ -63,12 +66,24 @@ Route::prefix('v1')->group(function () {
     //Route::get('/category', [CategoryController::class, 'index'])->name('category-index');
     //Route::post('/category', [CategoryController::class, 'store'])->name('category-store');
 
-    Route::get('/comment', [CommentController::class, 'index'])->name('comment-index');
-    Route::get('/content', [ContentController::class, 'index'])->name('content-index');
-    Route::get('/coupon', [CouponController::class, 'index'])->name('coupon-index');
+    Route::controller(CommentController::class)->prefix('/comment')->name('comment.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
+    Route::controller(ContentController::class)->prefix('/content')->name('content.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
+    Route::controller(CouponController::class)->prefix('/coupon')->name('coupon.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
+    Route::controller(FavoriteController::class)->prefix('/favorite')->name('favorite.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
     Route::get('/menu', [MenuController::class, 'index'])->name('menu-index');
     Route::get('/movement', [MovementController::class, 'index'])->name('movement-index');
-    Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite-index');
     Route::get('/product-category', [ProductCategoryController::class, 'index'])->name('product-category-index');
     Route::get('/rating', [RatingController::class, 'index'])->name('rating-index');
     Route::get('/user', [UserController::class, 'index'])->name('user-index');

@@ -15,14 +15,26 @@ class CampaignStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'productId' => ['required', 'integer', 'exists:products,id'],
+            'title' => ['required', 'min:3', 'max:150', 'string'],
+            'description' => ['required', 'min:3', 'max:255', 'string'],
+            'type' => ['required', 'max:20', 'string'],
+            'price' => ['required', 'integer'],
+            'startDate' => ['required', 'date'],
+            'endDate' => ['required', 'date'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'productId' => "productId Required",
+            'title' => "title Required",
+            'description' => "description Required",
+            'type' => "type Required",
+            'price' => "price Required",
+            'startDate' => "startDate Required",
+            'endDate' => "endDate Required"
         ];
     }
 

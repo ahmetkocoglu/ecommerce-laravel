@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Price extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
     protected $hidden = [
         'confirm',
         'created_at',

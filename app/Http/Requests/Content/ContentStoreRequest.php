@@ -15,14 +15,16 @@ class ContentStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'title' => ['required', 'min:3', 'max:150', 'string'],
+            'description' => ['required', 'min:3', 'max:150', 'string'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-
+            'title' => "Title Required",
+            'description' => "Description Required",
         ];
     }
 

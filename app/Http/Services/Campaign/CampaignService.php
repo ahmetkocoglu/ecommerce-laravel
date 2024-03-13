@@ -11,8 +11,13 @@ class CampaignService
     public static function store(array $request)
     {
         $insert = Campaign::query()->create([
+            'product_id' => $request['productId'],
             'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+            'description' => $request['description'],
+            'type' => $request['type'],
+            'price' => $request['price'],
+            'start_date' => $request['startDate'],
+            'end_date' => $request['endDate'],
         ]);
 
         if(!$insert) return false;
