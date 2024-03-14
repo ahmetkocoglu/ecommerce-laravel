@@ -14,6 +14,7 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VariationController;
 use Illuminate\Http\Request;
@@ -117,6 +118,10 @@ Route::prefix('v1')->group(function () {
         Route::get('/id', 'userId')->name('store');
     });
     Route::controller(VariationController::class)->prefix('/variation')->name('variation.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
+    Route::controller(UploadController::class)->prefix('/file/upload')->name('upload.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
     });
