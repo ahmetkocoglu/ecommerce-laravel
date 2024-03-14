@@ -2,6 +2,9 @@
 
 namespace App\Http\Services\User;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class UserService
 {
@@ -10,13 +13,25 @@ class UserService
      */
     public static function store(array $request)
     {
-        $insert = User::query()->create([
-            'title' => $request['title'],
-            'seo' => \Str::slug($request['title']),
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
         ]);
 
-        if(!$insert) return false;
+        event(new Registered($user));
 
-        return $insert;
+        Auth::login($user);
+
+        // $insert = User::query()->create([
+        //     'title' => $request['title'],
+        //     'seo' => \Str::slug($request['title']),
+        // ]);
+
+        // if(!$insert) return false;
+
+        // return $insert;
+
+        return true;
     }
 }

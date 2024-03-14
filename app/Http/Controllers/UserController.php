@@ -6,9 +6,15 @@ use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Services\User\UserService;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:api');
+    // }
+
     /**
      * Display a listing of the resource.
      */
@@ -18,13 +24,21 @@ class UserController extends Controller
 
         return response()->json($users);
     }
-
+    public function userId()
+    {
+        return response()->json(Auth::user());
+    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
+    }
+
+    public function signIn(Request $request)
+    {
+        return response()->json(true);
     }
 
     /**

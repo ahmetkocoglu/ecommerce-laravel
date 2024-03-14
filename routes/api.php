@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -51,8 +51,15 @@ Route::prefix('v1')->group(function () {
         return response()->json('service start => post');
     });
 
-    Route::controller(RegisteredUserController::class)->prefix('/auth')->name('auth.')->group(function () {
-        Route::post('/sign-up', 'store')->name('store');
+    Route::controller(AuthController::class)->prefix('/auth')->name('auth.')->group(function () {
+        Route::post('sign-in', 'login');
+        Route::post('sign-up', 'register');
+        Route::post('logout', 'logout');
+        Route::post('refresh', 'refresh');
+
+    });
+
+    Route::controller(UserController::class)->prefix('/user')->name('user.')->group(function () {
     });
     Route::controller(ProductController::class)->prefix('/product')->name('product.')->group(function () {
         Route::get('/', 'index')->name('index');
@@ -105,7 +112,10 @@ Route::prefix('v1')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
     });
-    Route::get('/user', [UserController::class, 'index'])->name('user-index');
+    Route::controller(UserController::class)->prefix('/user')->middleware('auth:api')->name('user.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/id', 'userId')->name('store');
+    });
     Route::controller(VariationController::class)->prefix('/variation')->name('variation.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
