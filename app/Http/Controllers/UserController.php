@@ -28,6 +28,16 @@ class UserController extends Controller
     {
         return response()->json(Auth::user());
     }
+    public function me()
+    {
+        $response = [
+            "message" => "",
+            "user" => Auth::user(),
+            "basket" => []
+        ];
+
+        return response()->json($response);
+    }
     /**
      * Show the form for creating a new resource.
      */

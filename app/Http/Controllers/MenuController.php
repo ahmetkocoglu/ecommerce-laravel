@@ -15,8 +15,12 @@ class MenuController extends Controller
     public function index()
     {
         //$menus = Menu::all();
-        $menus = Menu::where('menu_id', null)->with('subMenu')->get();
-        return response()->json($menus);
+        $menus = Menu::with('subMenu')->get();
+        $response = [
+            "message" => "",
+            "list" => $menus->toArray()
+        ];
+        return response()->json($response);
     }
 
     /**

@@ -15,18 +15,33 @@ class Menu extends Model
         'confirm',
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
+        'menu_id'
     ];
 
     protected $casts = [
         'request_date' => 'datetime:Y-m-d H:i:s',
     ];
 
-    public function subMenu(){
+    //Add extra attribute
+    protected $attributes = ['menu'];
+
+    //Make it available in the json response
+    protected $appends = ['menu'];
+
+    //implement the attribute
+    public function getMenuAttribute()
+    {
+        return $this->menu_id;
+    }
+
+    public function subMenu()
+    {
         return $this->hasMany(Menu::class, 'menu_id', 'id')->with('subSubMenu');
     }
 
-    public function subSubMenu(){
+    public function subSubMenu()
+    {
         return $this->hasMany(Menu::class, 'menu_id', 'id');
     }
 }

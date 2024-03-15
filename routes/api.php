@@ -115,6 +115,7 @@ Route::prefix('v1')->group(function () {
     });
     Route::controller(UserController::class)->prefix('/user')->middleware('auth:api')->name('user.')->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('/me', 'me')->name('me');
         Route::get('/id', 'userId')->name('store');
     });
     Route::controller(VariationController::class)->prefix('/variation')->name('variation.')->group(function () {
